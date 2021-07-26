@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block qstpaperactive %} active {% endblock qstpaperactive %}
+{% block title %} Question Papers{% endblock title %}
+{% block body %} 
+{% load static%}
+<style>
+    .qlink{
+
+        font-size: 20px;
+        font-weight: bold;
+        color: rgb(68, 26, 26);
+    }
+</style>
+
+<div class="text-center" style="margin-top:10px;">
+    <h2>All Examinations Previous Year Quetion Papers</h2>
+</div>
+<div style="margin-left: 10px;margin-bottom: 20px;">
+
+    <a class="btn btn-outline-primary text-center" href="https://www.upsc.gov.in/examinations/previous-question-papers?field_exam_name_value=" target="_blank" style="margin-top:10px; margin-bottom:5px;"> <p class="qlink">UPSC Examinations</p></a>
+    <a class="btn btn-outline-primary text-center" href="https://www.upsc.gov.in/examinations/previous-question-papers?field_exam_name_value=" target="_blank" style="margin-top:10px; margin-bottom:5px;"> <p class="qlink">Combined Defence Services Examination (I), 2021</p></a>
+    <a class="btn btn-outline-primary text-center" href="https://www.upsc.gov.in/examinations/previous-question-papers?field_exam_name_value=" target="_blank" style="margin-top:10px; margin-bottom:5px;"> <p class="qlink">Civil Services (Main) Examination, 2020</p></a>
+    <a class="btn btn-outline-primary text-center" href="https://www.upsc.gov.in/examinations/previous-question-papers?field_exam_name_value=" target="_blank" style="margin-top:10px; margin-bottom:5px;"> <p class="qlink">Central Armed Police Forces (ACs) Examination, 2020</p></a>
+    <a class="btn btn-outline-primary text-center" href="https://www.upsc.gov.in/examinations/previous-question-papers?field_exam_name_value=Combined+Defence+Services+Examination" target="_blank" style="margin-top:10px; margin-bottom:5px;"> <p class="qlink">Combined Defence Services Examination</p></a>
+    <a class="btn btn-outline-primary text-center" href="https://www.upsc.gov.in/examinations/previous-question-papers?field_exam_name_value=Combined+medical+Services+Examination" target="_blank" style="margin-top:10px; margin-bottom:5px;"> <p class="qlink">Combined Medical Services Examination</p></a>
+    <a class="btn btn-outline-primary text-center" href="https://www.upsc.gov.in/examinations/previous-question-papers?field_exam_name_value=Engineering+Services+%28Main%29+Examination" target="_blank" style="margin-top:10px; margin-bottom:5px;"> <p class="qlink">Engineering Services (Main) Examination</p></a>
+    <a class="btn btn-outline-primary text-center" href="https://www.upsc.gov.in/examinations/previous-question-papers?field_exam_name_value=Combined+Geo-Scientist+%28Main%29+Examination" target="_blank" style="margin-top:10px; margin-bottom:5px;"> <p class="qlink">Combined Geo-Scientist (Main) Examination, 2020</p></a>
+    </div>
+    <br><br><br>
+{% endblock body %}

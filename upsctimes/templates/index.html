@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{% block homeactive %} active {% endblock homeactive %}
+{% block extra_head %}
+{% for post in posts %}
+<meta name="keywords" content="{{post.title}}">
+<meta name="description" content="{{ post.description |truncatewords:'20' }}....">
+{% endfor %}
+{% endblock%}
+{% block title %} home page{% endblock title %}
+{% block body %}
+{% load static%}
+<style>
+  #more {
+    display: none;
+  }
+
+  .content {
+    justify-content: center;
+  }
+
+  .st {
+    width: 21rem;
+    margin-left: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .iv {
+    border: 0ch;
+    width: 2ch;
+  }
+</style>
+
+{% for message in messages %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  
+  {{message}}
+  
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{% endfor %}
+
+<div class="container">
+<h1 class="text-center">Welcome to Upsctimes Blog</h1>
+
+
+
+<!--<div class="card st">
+  <div class="card-header">
+    <h5 class="card-title">{{post.title}}</h5>
+  </div>
+  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{{post.img.url}}" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <!-- 
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">{{posts.description}}
+        </li>
+      </ul>
+    -->
+    <!--<form action="readArticle/" method="POST">
+      {% csrf_token %}
+      <div class="card-body">
+        <p>{{ post.description |truncatewords:"30" }}.... </p>
+        <input style="color: white;" type="text" class="input-join iv" name ="id" value={{post.id}} readonly="readonly">
+        <button class="btn btn-link">Read Full Article</button>
+      </div>
+    </div>
+  </div>
+</form>-->
+
+<div style="margin-left: 10px; margin-right: 10px; justify-content: center;">
+  <div class="container outer-job" style="height: auto !important;">
+    {% for post in posts %}
+    <div class="container mt-3 job-card">
+  <h3 class="mt-0"><a href="/readArticle/{{post.slug}}" class="text-dark">{{post.title}}</a></h3>
+  <div class="media" style="margin-bottom: 20px;">
+    <img class="mr-3" src="{{post.img.url}}" alt="Generic placeholder image" style="height: 190px;width: 165px;">
+        <div class="media-body">
+          <p style="max-width: 89%;">{{ post.description |truncatewords:"50" |safe}}.... </p>
+          <a href="/readArticle/{{post.slug}}"><button class="btn btn-primary"> Read More...</button></a>
+        </div>
+      </div>
+      </div>
+      {% endfor %}
+    </div>
+</div>
+
+    <div class="my-3">
+      {% if prev %}
+      <button class="btn btn-primary"><a href="?page={{prev}}" class="text-light">&laquo; Previous</a></button>
+
+      {% else %}
+      <button class="btn btn-primary"><a href="#" class="text-light">&laquo; Previous</a></button>
+      {% endif %}
+      {% if nxt %}
+      <button class="btn btn-primary float-right"><a href="?page={{nxt}}" class="text-light">Next &raquo;</a></button>
+      
+      {% else %}
+      <button class="btn btn-primary float-right"><a href="#" class="text-light">Next &raquo;</a></button>
+      {% endif %}
+    </div>
+    
+    
+    <!-- Very Important Div -->
+    
+    
+  </div>
+    {% endblock body %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block notesactive %} active {% endblock notesactive %}
+{% block title %} Notes{% endblock title %}
+{% block body %} 
+{% load static%}
+<style>
+    .notes-feed{
+        margin-top: 5px;
+        margin-left: 30px;
+    }
+</style>
+
+
+<div class="notes-feed">
+    {% for note in file %}
+    <h4>{{note.title}}</h4>
+    <p>{{note.desc}}</p>
+    <a class = "btn btn-primary" href="{{note.adminupload.url}}" target = "_blank"> view </a>
+    <a class = "btn btn-primary" href="{{note.adminupload.url}}"   download> Download </a>
+    <hr>
+    {% endfor %}
+</div>
+<div class="text-center" style="margin-top:15px; margin-bottom:15px;">
+    <h5>For Daily NewsPapers And more Notes</h5>
+<a href="https://t.me/Upsctimes_Official" target="_blank"><img src="/static/upsc-telegram.gif" alt=""></a>
+</div>
+{% endblock body %}

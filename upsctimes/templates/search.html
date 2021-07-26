@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %} MCQ {% endblock title %}
+{% block body %} 
+{% load static%}
+<div style="margin-left: 10px; margin-right: 10px; justify-content: center;">
+    <div class = "no-result">
+        <h3>Search Results : </h3>
+            {% if allqst|length < 1 %}
+            <p> No Search Result Found. <br> 
+            Your Search Query : <b>{{query}}</b> - did not match any document.</p>
+            Suggestions :
+            <ul>
+                <li> sure that all words are spelled correctly.</li>
+                <li>Try different keywords.</li>
+                <li>Try more general keywords.</li>
+                <li>Try fewer keywords.</li>
+            </ul>
+            {% endif %}
+            <a href="/quiz" class="btn btn-dark"><< Back</a>
+    </div>
+{% for post in allqst %}
+    <p>{{post.qst | linebreaks}}</p>
+        a) {{post.a}}<br />
+        b) {{post.b}}<br />
+        c) {{post.c}}<br />
+        d) {{post.d}}<br />
+        <span>
+            <b>Ansewer : {{post.ans}}</b>
+        </span>  
+            {% endfor %}
+            <br> <br>
+        </div>
+
+{% endblock body %}

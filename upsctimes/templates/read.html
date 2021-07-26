@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block homeactive %} active {% endblock homeactive %}
+{% block title %} Article {% endblock title %}
+{% block body %} 
+{% load static%}
+{% load social_share %}
+<style>
+    .sizing{
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+</style>
+
+
+<div class="card st sizing" style="border-width: 0ch;">
+    <div class="card-header">
+        <h5 class="card-title">{{post.title}}</h5>
+    </div>
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active text-center" style="margin-top: 10px;">
+		    <img src="{{post.img.url}}" class="d-block mx-auto" alt="{{post.title}} image" style="width: 345px; height: 350px;">
+            </div>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{post.description | safe}}
+            </li>
+        </ul>
+        {{share_string}}
+        <div class="card-body">
+            <h5>Share with :</h5>
+            {% post_to_facebook object_or_url "Post to Facebook!" "fa fa-facebook" %}
+            {% post_to_whatsapp  object_or_url "Share to Whatsapp" "fa fa-whatsapp" %}
+            {% post_to_telegram  object_or_url "Share To Telegram" %}
+                <button class="btn btn-primary"><a href="/" class="card-link text-light">Home</a></button>
+                <button class="btn btn-primary"><a href="/" class="card-link text-light">Back</a></button>
+        </div>
+    </div>
+
+</div>
+    
+    
+    {% endblock body %}
