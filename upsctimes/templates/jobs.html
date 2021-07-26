@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block jobsactive %} active {% endblock jobsactive %}
+{% block title %} jobs {% endblock title %}
+{% block body %} 
+{% load static%}
+{% url 'jobs' as jobs %}
+{% url 'corporatejobs' as pjobs %}
+<!--{% url 'quiz' as history %}
+{% url 'geography' as geography %}
+{% url 'polity' as polity %}
+{% url 'currentaffairs' as currentaffairs %}
+{% url 'generalscience' as generalscience %}-->
+
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link {% if request.path == jobs %} active {% endif %}" href="/jobs">Government Jobs</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link {% if request.path == pjobs %} active {% endif %}" href="/corporatejobs">Private Sector </a>
+  </li>
+</ul>
+<div class="text-center" style="margin-top:10px;">
+  <h2>Current Openings</h2>
+</div>
+<div style="margin-left: auto; margin-right: auto;">{% include 'job.html' %}</div>
+<div class="my-3" style="margin-left: 20px; margin-right: 20px;">
+  {% if prev %}
+    <button class="btn btn-primary"><a href="?page={{prev}}" class="text-light">&laquo; Previous</a></button>
+  
+    {% else %}
+    <button class="btn btn-primary"><a href="#" class="text-light">&laquo; Previous</a></button>
+  {% endif %}
+  {% if nxt %}
+    <button class="btn btn-primary float-right"><a href="?page={{nxt}}" class="text-light">Next &raquo;</a></button>
+  
+    {% else %}
+    <button class="btn btn-primary float-right"><a href="#" class="text-light">Next &raquo;</a></button>
+  {% endif %}
+  </div>
+
+{% endblock body %}

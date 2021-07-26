@@ -1,0 +1,28 @@
+<div style="margin-left: 10px; margin-right: 10px; justify-content: center;">
+    <!--<div class = "navbar">
+            <h3>{{t}}</h3>
+            <form method = "get" action = "/search{{m}}" class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search a question" aria-label="Search" name = "query" id = "query">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+    </div>-->
+    <div class="container outer-job" style="height: auto !important; font-family: 'Droid Sans';">
+
+        {% for post in posts %}
+        <!-- Post Start-->
+        <div class="container mt-3 job-card">
+            <a href="/readgjob/{{post.slug}}"><h5 class="mt-0">{{post.title | safe}}</h5></a>
+            <div class="media">
+                <img src="{{post.logo.url}}" width = "98px" height="96px" class="mr-3" alt="...">
+                <div class="media-body ml-1">
+                    <p>{{post.desc | truncatewords:"27" |safe}}...</p>
+                </div><br>
+            </div>
+            <div class="read-button">
+                <button class="btn btn-primary">Read More....</button>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <br> <br>
+</div>

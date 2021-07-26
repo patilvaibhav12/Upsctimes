@@ -1,0 +1,17 @@
+<div style="margin-left: 10px; margin-right: 10px; justify-content: center;">
+    <div class = "navbar">
+            <h3>{{t}}</h3>
+            
+    </div>
+{% for post in posts %}
+    <p>{{post.qst | linebreaks}}</p>
+        a) {{post.a}}<br />
+        b) {{post.b}}<br />
+        c) {{post.c}}<br />
+        d) {{post.d}}<br />
+        <span>
+            <b style="color: green;">Ansewer : {{post.ans}}</b>
+        </span>  
+            {% endfor %}
+            <br> <br>
+        </div>

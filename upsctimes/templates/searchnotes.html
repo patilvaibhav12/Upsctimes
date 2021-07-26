@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %} MCQ {% endblock title %}
+{% block body %}
+{% load static%}
+<style>
+    .notes-feed{
+        margin-top: 5px;
+        margin-left: 30px;
+    }
+</style>
+<div style="margin-left: 10px; margin-right: 10px; justify-content: center;">
+    <div class="no-result">
+        <h3>Search Results : </h3>
+        {% if file|length < 1 %} 
+        <p> No Search Result Found. <br> 
+            Your Search Query : <b>{{query}}</b> - did not match any document.</p>
+            Suggestions :
+            <ul>
+                <li> sure that all words are spelled correctly.</li>
+                <li>Try different keywords.</li>
+                <li>Try more general keywords.</li>
+                <li>Try fewer keywords.</li>
+            </ul>
+            {% endif %}
+            <a href="/notes" class="btn btn-dark">
+                << Back</a>
+    </div>
+    <div class="notes-feed">
+        {% for note in file %}
+        <h4>{{note.title}}</h4>
+        <p>{{note.desc}}</p>
+        <a class = "btn btn-primary" href="{{note.adminupload.url}}" target = "_blank"> view </a>
+        <a class = "btn btn-primary" href="{{note.adminupload.url}}"   download> Download </a>
+        <hr>
+        {% endfor %}
+    </div>
+    
+</div>
+
+{% endblock body %}

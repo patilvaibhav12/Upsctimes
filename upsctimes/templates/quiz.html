@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block quizactive %} active {% endblock quizactive %}
+{% block title %} MCQ {% endblock title %}
+{% block body %} 
+{% load static%}
+
+{% url 'quiz' as quiz %}
+{% url 'geography' as geography %}
+{% url 'polity' as polity %}
+{% url 'currentaffairs' as currentaffairs %}
+{% url 'generalscience' as generalscience %}
+
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link {% if request.path == quiz %} active {% endif %}" href="/quiz">History</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link {% if request.path == geography %} active {% endif %}" href="/geography">Geography</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link {% if request.path == polity %} active {% endif %}" href="/polity">Polity</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link {% if request.path == currentaffairs %} active {% endif %}" href="/currentaffairs">Current Affairs</a>
+  </li><li class="nav-item">
+    <a class="nav-link {% if request.path == generalscience %} active {% endif %}" href="/generalscience">General Science</a>
+  
+</ul>
+
+<div style="margin-left: auto; margin-right: auto;">{% include 'mcq.html' %}</div>
+
+<div class="my-3" style="margin-left: 20px; margin-right: 20px;">
+  {% if prev %}
+    <button class="btn btn-primary"><a href="?page={{prev}}" class="text-light">&laquo; Previous</a></button>
+  
+    {% else %}
+    <button class="btn btn-primary"><a href="#" class="text-light">&laquo; Previous</a></button>
+  {% endif %}
+  {% if nxt %}
+    <button class="btn btn-primary float-right"><a href="?page={{nxt}}" class="text-light">Next &raquo;</a></button>
+  
+    {% else %}
+    <button class="btn btn-primary float-right"><a href="#" class="text-light">Next &raquo;</a></button>
+  {% endif %}
+  </div>
+
+{% endblock body %}
