@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '*)b*5he4k^wt!@qk7!ao*wrg^6-xf)3fgagjgfc^!)gudpb#k8'
+SECRET_KEY = 'secrete_key-update-from-env'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -136,8 +136,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 AWS_QUERYSTRING_AUTH = False
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-AWS_ACCESS_KEY_ID = 'AKIAQ7BGXHPBCZ4LFHFS'
-AWS_SECRET_ACCESS_KEY = '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'
+AWS_ACCESS_KEY_ID = 'access-key'
+AWS_SECRET_ACCESS_KEY = 'secrete-access-key'
 
 AWS_STORAGE_BUCKET_NAME = 'upscdata'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
