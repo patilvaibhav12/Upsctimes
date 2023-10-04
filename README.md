@@ -3,6 +3,7 @@
 
  # Tech Stack
   - Django
+  - HTML,CSS and JavaScript 
   - Bootstrap
 
  # Coud services
